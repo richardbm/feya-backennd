@@ -175,8 +175,8 @@ AUTH_USER_MODEL="accounts.User"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'no-reply@stcsolutions.com.ve'
-EMAIL_HOST_PASSWORD = 'v<.VY?GA$+2HK'
+EMAIL_HOST_USER = 'iglesiafeya@gmail.com'
+EMAIL_HOST_PASSWORD = 'colosenses323'
 EMAIL_PORT = 25
 URL = env('URL')
 
