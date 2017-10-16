@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 class PublicationAdmin(admin.ModelAdmin):
     list_display = ('title', 'owner', 'categories_names', 'date')
     list_filter = ('owner', 'categories')
-    search_fields = ('name', 'owner__first_name', 'owner__last_name',
+    search_fields = ('title', 'owner__first_name', 'owner__last_name',
                      'owner__email', 'categories__name')
     ordering = ('title', 'owner', 'categories__name', 'date')
 
@@ -15,6 +15,7 @@ class PublicationAdmin(admin.ModelAdmin):
         return names
 
     categories_names.short_description = _("Categorías")
+
 
 admin.site.register(models.Category)
 admin.site.register(models.Publication, PublicationAdmin)
