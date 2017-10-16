@@ -2,6 +2,6 @@ from django.apps import AppConfig
 from django.utils.translation import ugettext_lazy as _
 
 
-class AccountsConfig(AppConfig):
-    name = 'accounts'
-    verbose_name = _('Personas')
+class BlogConfig(AppConfig):
+    name = 'blog'
+    verbose_name = _('Blog')

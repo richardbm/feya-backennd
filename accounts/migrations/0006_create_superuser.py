@@ -8,7 +8,7 @@ from accounts.models import User
 def create_superuser(apps, schema_editor):
     # We can't import the model directly as it may be a newer
     # version than this migration expects. We use the historical version.
-    User.objects.create_user(username="feya", password="hobox1o1*", email="rbarrios@4geeks.co", is_staff=True, is_superuser=True)
+    User.objects.create_user(username="feya", password="hobox1o1", email="rbarrios@4geeks.co", is_staff=True, is_superuser=True)
 
 
 

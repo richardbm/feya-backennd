@@ -1,14 +1,13 @@
-from django.shortcuts import render
-from rest_framework import views, status, permissions, viewsets
-from rest_framework.response import Response
-from accounts import serializers as accounts_serializers
-from rest_framework.authtoken.models import Token
-from accounts import models as accounts_models
-from django.utils.crypto import get_random_string
-from django.conf import settings
-from django.core.mail.message import EmailMultiAlternatives
-from django.template.loader import render_to_string
+from rest_framework import views, status, permissions
 from django.contrib.auth.hashers import make_password
+from django.utils.crypto import get_random_string
+from rest_framework import views, status, permissions
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+
+from accounts import models as accounts_models
+from accounts import serializers as accounts_serializers
+from accounts.utils import send_email
 
 
 class LoginView(views.APIView):
@@ -45,21 +44,6 @@ class ProfileView(views.APIView):
     def get(self, request, *args, **kwargs):
         serializer = self.serializer_class(request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-def send_email(template, email_destinity, subject, data={}):
-    if 'msg' not in data.keys():
-        data['msg'] = subject
-    if True:
-        data["url"] = settings.URL
-        from_email = settings.EMAIL_HOST_USER
-        text_content = render_to_string(template, data)
-        html_content = render_to_string(template, data)
-
-        to = email_destinity
-        send = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        send.attach_alternative(html_content, "text/html")
-        send.send()
 
 
 class RequestRecoverPassword(views.APIView):

@@ -1,4 +1,4 @@
-**Solicitar la recouperación de la contraseña:**
+**Solicitar la recuperación de la contraseña:**
 
 
 **url:**
