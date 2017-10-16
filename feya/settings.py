@@ -33,7 +33,7 @@ if env('DEBUG') == 'True':
 elif env('DEBUG') == 'False':
     DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
