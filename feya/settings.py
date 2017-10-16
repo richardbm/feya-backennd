@@ -168,10 +168,10 @@ STATIC_ROOT = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media/'
 
-CKEDITOR_UPLOAD_PATH = 'media/images/'
+CKEDITOR_UPLOAD_PATH = 'images/'
 
 
-AUTH_USER_MODEL="accounts.User"
+AUTH_USER_MODEL = "accounts.User"
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
