@@ -77,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/feya/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
-              <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
+              <caret line="166" column="14" lean-forward="false" selection-start-line="166" selection-start-column="14" selection-end-line="166" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -764,7 +764,7 @@
     <entry file="file://$PROJECT_DIR$/feya/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="166" column="22" lean-forward="false" selection-start-line="166" selection-start-column="22" selection-end-line="166" selection-end-column="22" />
+          <caret line="166" column="14" lean-forward="false" selection-start-line="166" selection-start-column="14" selection-end-line="166" selection-end-column="51" />
           <folding />
         </state>
       </provider>
