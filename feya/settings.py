@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import environ
-
+import dj_database_url
 env = environ.Env()
 environ.Env.read_env()
 
@@ -96,14 +96,17 @@ WSGI_APPLICATION = 'feya.wsgi.application'
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'ENGINE': 'django.db.backends.'+config('DB_BACKEND'),
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'HOST': config('DB_HOST'),
-        'PASSWORD': config('DB_PASSWORD')
-    }
+    "default": dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
+    # 'default': {
+    #     # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'ENGINE': 'django.db.backends.'+config('DB_BACKEND'),
+    #     'NAME': config('DB_NAME'),
+    #     'USER': config('DB_USER'),
+    #     'HOST': config('DB_HOST'),
+    #     'PASSWORD': config('DB_PASSWORD')
+    # }
 }
 
 
