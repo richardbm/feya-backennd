@@ -58,7 +58,19 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class GenericSerializer(serializers.ModelSerializer):
-    # TODO: Agregar el init con configuracion de depth y fields
+
+    def __init__(self, *args, **kwargs):
+        fields = kwargs.pop('fields', None)
+        depth = kwargs.pop('depth', None)
+        super(GenericSerializer, self).__init__(*args, **kwargs)
+        if depth is not None:
+            self.Meta.depth = depth
+        if fields is not None:
+            allowed = set(fields)
+            existing = set(self.fields.keys())
+            for field_name in existing - allowed:
+                self.fields.pop(field_name)
+
     class Meta:
         model = None
         fields = '__all__'

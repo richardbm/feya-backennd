@@ -1,70 +1,12 @@
-from adminapi.serializers import UserSerializer
 from django.contrib.contenttypes import models
 from django.core import exceptions
-from rest_framework import authentication
+from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import viewsets
-from rest_framework.authtoken.models import Token
 from rest_framework.exceptions import APIException
-from rest_framework.permissions import IsAdminUser
-from rest_framework.response import Response
-from rest_framework.views import APIView
-
-from accounts.models import User
+from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 from adminapi import registry
 from adminapi import serializers
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    authentication_classes = (authentication.TokenAuthentication,)
-    permission_classes = (IsAdminUser,)
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-    def create(self, request):
-        serializer = UserSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        user = serializer.data
-        del user['password']
-        return Response(user)
-
-    def list(self, request):
-        serializer = UserSerializer(User.objects.all(), many=True)
-        for user in serializer.data:
-            del user['password']
-        return Response(serializer.data)
-
-    def retrieve(self, request, pk=None):
-        serializer = UserSerializer(self.get_object())
-        user = serializer.data
-        del user['password']
-        return Response(user)
-
-    def update(self, request, pk=None):
-        serializer = UserSerializer(
-            self.get_object(),
-            data=request.data,
-            partial=True
-        )
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        user = serializer.data
-        del user['password']
-        return Response(user)
-
-
-class LoginView(APIView):
-    authentication_classes = (authentication.BasicAuthentication,)
-
-    def post(self, request, format=None):
-        user = request.user
-        token, created = Token.objects.get_or_create(user=user)
-        return Response({
-            "detail": "Credentials validated",
-            "token": token.key,
-            "username": request.user.username
-         })
 
 
 class ModelDoesNotExist(APIException):
@@ -73,7 +15,27 @@ class ModelDoesNotExist(APIException):
 
 
 class GenericViewSet(viewsets.ModelViewSet):
-    authentication_classes = (authentication.TokenAuthentication,)
+    permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
+    search_fields = None
+
+    def filter_queryset(self, queryset):
+        self.search_fields = self.get_fields()
+        self.filter_fields = self.get_fields_serializer()
+        return super().filter_queryset(queryset)
+
+    def get_fields(self):
+        fields = self.get_queryset().model._meta.fields
+        list_fields = []
+        for obj in fields:
+            if obj.is_relation is False:
+                list_fields.append(obj.name)
+        return list_fields
+
+    def get_fields_serializer(self):
+        serializer = self.get_serializer_class()
+        dict_fields = serializer().get_fields()
+        fields = tuple(dict_fields.keys())
+        return fields
 
     def get_queryset(self):
         model_name = self.request.resolver_match.kwargs.get("model_name")
@@ -84,7 +46,7 @@ class GenericViewSet(viewsets.ModelViewSet):
                 model=model_name
             ).model_class().objects.all()
             return queryset
-        except (exceptions.ObjectDoesNotExist):
+        except exceptions.ObjectDoesNotExist:
             raise ModelDoesNotExist()
 
     def get_serializer_class(self):
@@ -94,8 +56,6 @@ class GenericViewSet(viewsets.ModelViewSet):
             model_name,
             serializers.GenericSerializer
         )
-        model = None
-
         try:
             model = models.ContentType.objects.get(
                 app_label=app_name,
@@ -103,5 +63,35 @@ class GenericViewSet(viewsets.ModelViewSet):
             ).model_class()
             serializer.Meta.model = model
             return serializer
-        except (exceptions.ObjectDoesNotExist):
+        except exceptions.ObjectDoesNotExist:
             raise ModelDoesNotExist()
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+
+        depth = int(request.GET.get("depth", 0))
+        fields = request.GET.get("fields", None)
+        if fields:
+            fields = fields.split(",")
+
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True,
+                                             depth=depth, fields=fields)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True,
+                                         depth=depth, fields=fields)
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        depth = int(request.GET.get("depth", 0))
+        fields = request.GET.get("fields", None)
+        if fields:
+            fields = fields.split(",")
+        serializer = self.get_serializer(instance,
+                                         depth=depth, fields=fields)
+        return Response(serializer.data)
+
+

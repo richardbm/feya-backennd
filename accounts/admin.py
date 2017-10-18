@@ -40,5 +40,5 @@ class MembershipAdmin(admin.ModelAdmin):
 
 admin.site.register(models.User, UserAdminExtend)
 admin.site.register(models.Membership, MembershipAdmin)
-admin.site.unregister(Token)
-admin.site.unregister(Group)
+# admin.site.unregister(Token)
+# admin.site.unregister(Group)

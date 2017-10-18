@@ -17,22 +17,27 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from accounts import views as accounts_views
+from adminapi.views import GenericViewSet
 
 router = routers.DefaultRouter()
+router.register(
+    r"(?P<app_name>\w+)/(?P<model_name>\w+)",
+    GenericViewSet,
+    base_name="generic"
+)
 
 urlpatterns = [
     url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    url(r'^api/', include('adminapi.urls')),
+    url(r'', admin.site.urls),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'', include(router.urls)),
+    url(r'api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^login/', accounts_views.LoginView.as_view()),
-    url(r'^profile/', accounts_views.ProfileView.as_view()),
-    url(r'^signup/', accounts_views.SignupView.as_view()),
-    url(r'^request-recover-password/', accounts_views.RequestRecoverPassword.as_view()),
-    url(r'^recover-password/', accounts_views.RecoverPassword.as_view()),
+    url(r'^api/login/', accounts_views.LoginView.as_view()),
+    url(r'^api/profile/', accounts_views.ProfileView.as_view()),
+    url(r'^api/signup/', accounts_views.SignupView.as_view()),
+    url(r'^api/request-recover-password/', accounts_views.RequestRecoverPassword.as_view()),
+    url(r'^api/recover-password/', accounts_views.RecoverPassword.as_view()),
 
 ]
 from django.conf import settings
