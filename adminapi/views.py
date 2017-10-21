@@ -18,6 +18,7 @@ class ModelDoesNotExist(APIException):
 class GenericViewSet(viewsets.ModelViewSet):
     permission_classes = (DjangoModelPermissionsOrAnonReadOnly,)
     search_fields = None
+    exclude_filter = ['day_display']
 
     def filter_queryset(self, queryset):
         self.search_fields = self.get_fields()
@@ -30,12 +31,14 @@ class GenericViewSet(viewsets.ModelViewSet):
         for obj in fields:
             if obj.is_relation is False:
                 list_fields.append(obj.name)
+        list_fields = tuple(set(list_fields) - set(self.exclude_filter))
         return list_fields
 
     def get_fields_serializer(self):
         serializer = self.get_serializer_class()
         dict_fields = serializer().get_fields()
         fields = tuple(dict_fields.keys())
+        fields = tuple(set(fields) - set(self.exclude_filter))
         return fields
 
     def get_queryset(self):

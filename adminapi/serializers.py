@@ -76,6 +76,13 @@ class GenericSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class ServiceSerializer(GenericSerializer):
+    day_display = serializers.SerializerMethodField()
+
+    def get_day_display(self, obj):
+        return obj.get_day_display()
+
+
 class DateContactSerializer(serializers.ModelSerializer):
 
     def __init__(self, *args, **kwargs):
