@@ -15,7 +15,7 @@ A su vez. los endpoints permiten utilizar el parametro depth para
 
 indicar la profundidad de los objetos relacionados. Ejemplo
 
-http://127.0.0.1:8000/api/blog/publication/2/
+http://admin.iglesiafeya.co/api/blog/publication/2/
 
 ```
 {
@@ -32,7 +32,7 @@ http://127.0.0.1:8000/api/blog/publication/2/
 
 ahora con depth:
 
-http://127.0.0.1:8000/api/blog/publication/2/?depth=1
+http://admin.iglesiafeya.co/api/blog/publication/2/?depth=1
 
 ```
 {
@@ -69,7 +69,7 @@ Este parametro permite elegir los campos a mostrar
 
 ejemplo:
 
-http://127.0.0.1:8000/api/blog/publication/2/?depth=1&fields=id,title,categories
+http://admin.iglesiafeya.co/api/blog/publication/2/?depth=1&fields=id,title,categories
 ```
 {
     "id": 2,
