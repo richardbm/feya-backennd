@@ -180,3 +180,32 @@ GET /api/ministry/service/?depth=1
     }
 ]
 ```
+
+
+GET /api/ministry/activity/?depth=1
+
+```
+[
+    {
+        "id": 1,
+        "name": "Campaña evangelistica",
+        "description": "Campaña para ganar almas",
+        "contact": "Oswaldo, Hermana Ana",
+        "date": "2017-10-28T09:00:00Z",
+        "leader": [
+            {
+                "id": 6,
+                "first_name": "Oswaldo",
+                "last_name": "Saavedra",
+                "email": "saav@gmail.com",
+                "address": "por ahi",
+                "is_active": true,
+                "birthday": "2017-10-11",
+                "ci": 435345,
+                "phone": "04146032355",
+                "is_baptized": true
+            }
+        ]
+    }
+]
+```

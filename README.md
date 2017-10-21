@@ -85,11 +85,13 @@ http://127.0.0.1:8000/api/blog/publication/2/?depth=1&fields=id,title,categories
 
 endpoints:
 
-* [Login] (docs/login.md)
+* [Login] (/docs/login.md)
 
-* [Sign Up] (docs/signup.md)
+* [Sign Up] (/docs/signup.md)
 
-* [Profile] (docs/profile.md)
+* [Profile] (/docs/profile.md)
 
-* [Recover password] (docs/recover_password.md)
+* [Site] (/docs/site.md)
+
+* [Recover password] (/docs/recover_password.md)
 
