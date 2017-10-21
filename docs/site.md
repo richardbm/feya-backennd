@@ -209,3 +209,16 @@ GET /api/ministry/activity/?depth=1
     }
 ]
 ```
+
+
+GET /api/ministry/contact/?depth=1
+
+```
+{
+    "id": 1,
+    "address": "Por aqui y por alla",
+    "email": "casa@gmail.com",
+    "phone": "0499298498",
+    "date": "2017-10-16T03:03:42.083713Z"
+}
+```

@@ -78,7 +78,7 @@ class DateContact(models.Model):
     address = models.TextField(_("Dirección"))
     email = models.TextField(_("Correos de contacto"))
     phone = models.TextField(_("Teléfono de contacto"))
-    image_map = models.ImageField(blank=True, null=True)
+    # image_map = models.ImageField(blank=True, null=True)
     date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

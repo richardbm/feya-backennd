@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.db import models
 
 from rest_framework import serializers, exceptions
-
+from ministry.models import DateContact
 
 class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
@@ -74,3 +74,22 @@ class GenericSerializer(serializers.ModelSerializer):
     class Meta:
         model = None
         fields = '__all__'
+
+
+class DateContactSerializer(serializers.ModelSerializer):
+
+    def __init__(self, *args, **kwargs):
+        fields = kwargs.pop('fields', None)
+        depth = kwargs.pop('depth', None)
+        super(DateContactSerializer, self).__init__(*args, **kwargs)
+        if depth is not None:
+            self.Meta.depth = depth
+        if fields is not None:
+            allowed = set(fields)
+            existing = set(self.fields.keys())
+            for field_name in existing - allowed:
+                self.fields.pop(field_name)
+
+    class Meta:
+        fields = '__all__'
+        model = DateContact

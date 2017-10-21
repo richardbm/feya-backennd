@@ -17,9 +17,14 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 from accounts import views as accounts_views
-from adminapi.views import GenericViewSet
+from adminapi.views import GenericViewSet, DateContactView
 
 router = routers.DefaultRouter()
+router.register(
+    r"ministry/datecontact",
+    DateContactView,
+    base_name="date-contact"
+)
 router.register(
     r"(?P<app_name>\w+)/(?P<model_name>\w+)",
     GenericViewSet,

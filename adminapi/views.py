@@ -7,6 +7,7 @@ from rest_framework.exceptions import APIException
 from rest_framework.permissions import DjangoModelPermissionsOrAnonReadOnly
 from adminapi import registry
 from adminapi import serializers
+from ministry.models import DateContact
 
 
 class ModelDoesNotExist(APIException):
@@ -93,5 +94,38 @@ class GenericViewSet(viewsets.ModelViewSet):
         serializer = self.get_serializer(instance,
                                          depth=depth, fields=fields)
         return Response(serializer.data)
+
+
+class DateContactView(viewsets.ModelViewSet):
+    queryset = DateContact.objects.all()
+    serializer_class = serializers.DateContactSerializer
+    http_method_names = ('get',)
+    filter_backends = []
+    filter_fileds = []
+    search_fields = []
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        instance = queryset.order_by("-date")[0]
+
+        depth = int(request.GET.get("depth", 0))
+        fields = request.GET.get("fields", None)
+        if fields:
+            fields = fields.split(",")
+
+        serializer = self.get_serializer(instance,
+                                         depth=depth, fields=fields)
+        return Response(serializer.data)
+
+    def retrieve(self, request, *args, **kwargs):
+        instance = self.get_object()
+        depth = int(request.GET.get("depth", 0))
+        fields = request.GET.get("fields", None)
+        if fields:
+            fields = fields.split(",")
+        serializer = self.get_serializer(instance,
+                                         depth=depth, fields=fields)
+        return Response(serializer.data)
+
 
 
