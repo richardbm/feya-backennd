@@ -16,7 +16,7 @@ def load_publications(apps, schema_editor):
     # version than this migration expects. We use the historical version.
     publication_model = apps.get_model("blog", "publication")
     category_model = apps.get_model("blog", "category")
-    owner = apps.get_model("accounts", "user")
+    owner = apps.get_model("accounts", "membership")
     json_file = open(FIELD_DATA_FILE).read()
     json_data = json.loads(json_file)
     for json_object in json_data:
@@ -38,3 +38,41 @@ class Migration(migrations.Migration):
     operations = [
         migrations.RunPython(load_publications),
     ]
+
+# from django.utils import timezone
+# from blog.models import Publication
+# from random import choice
+# hours = range(14, 17)
+# minutes = range(5, 59)
+# seconds = range(5, 59)
+#
+#
+# dates = [
+#     "07/09/2017",
+#     "11/09/2017",
+#     "14/09/2017",
+#     "18/09/2017",
+#     "21/09/2017",
+#     "25/09/2017",
+#     "28/09/2017",
+#     "03/10/2017",
+#     "05/10/2017",
+#     "07/09/2017",
+#     "11/09/2017",
+#     "14/09/2017",
+#     "18/09/2017",
+#     "21/09/2017",
+#     "25/09/2017",
+#     "28/09/2017",
+#     "03/10/2017",
+#     "05/10/2017"
+# ]
+#
+# for pub in Publication.objects.all():
+#     date = choice(dates)
+#     hour = choice(hours)
+#     minute = choice(minutes)
+#     second = choice(seconds)
+#     date_time = "{d}T{h}:{m}:{s}".format(d=date, h=hour, m=minute, s=second)
+#     pub.date = timezone.datetime.strptime(date_time, "%d/%m/%YT%H:%M:%S")
+#     pub.save()
