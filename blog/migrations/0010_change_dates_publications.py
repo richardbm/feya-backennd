@@ -9,41 +9,7 @@ from random import choice
 def change_dates_pub(apps, schema_editor):
     # We can't import the model directly as it may be a newer
     # version than this migration expects. We use the historical version.
-    Publication = apps.get_model("blog", "publication")
-    hours = range(18, 21)
-    minutes = range(5, 59)
-    seconds = range(5, 59)
-
-    dates = [
-        "07/09/2017",
-        "11/09/2017",
-        "14/09/2017",
-        "18/09/2017",
-        "21/09/2017",
-        "25/09/2017",
-        "28/09/2017",
-        "03/10/2017",
-        "05/10/2017",
-        "07/09/2017",
-        "11/09/2017",
-        "14/09/2017",
-        "18/09/2017",
-        "21/09/2017",
-        "25/09/2017",
-        "28/09/2017",
-        "03/10/2017",
-        "05/10/2017"
-    ]
-
-    for pub in Publication.objects.all():
-        date = choice(dates)
-        hour = choice(hours)
-        minute = choice(minutes)
-        second = choice(seconds)
-        date_time = "{d}T{h}:{m}:{s}".format(d=date, h=hour, m=minute, s=second)
-        pub.date = timezone.datetime.strptime(date_time, "%d/%m/%YT%H:%M:%S")
-        pub.save()
-
+    pass
 
 class Migration(migrations.Migration):
     dependencies = [
