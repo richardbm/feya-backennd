@@ -32,3 +32,4 @@ class Publication(models.Model):
     class Meta:
         verbose_name = _('Publicación')
         verbose_name_plural = _('Publicaciones')
+        ordering = ['-date']

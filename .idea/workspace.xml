@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd65796e-8055-4d4c-8e15-e656e2805fc8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/migrations/0009_load_publications.py" afterPath="$PROJECT_DIR$/blog/migrations/0009_load_publications.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/models.py" afterPath="$PROJECT_DIR$/blog/models.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/feya/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="21" />
+            <state relative-caret-position="276">
+              <caret line="162" column="13" lean-forward="false" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -38,6 +37,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-23490">
               <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/feya/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -55,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="0010_change_dates_publications.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="0010_change_dates_publications.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
@@ -87,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/blog/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
+            <state relative-caret-position="455">
+              <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -112,16 +121,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
               <caret line="17" column="7" lean-forward="false" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="profile.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/profile.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -162,6 +161,7 @@
       <find>127.0.0.1:8000</find>
       <find>CORS</find>
       <find>random.</find>
+      <find>time</find>
     </findStrings>
     <replaceStrings>
       <replace>leader</replace>
@@ -212,7 +212,6 @@
         <option value="$PROJECT_DIR$/adminapi/urls.py" />
         <option value="$PROJECT_DIR$/adminapi/pagination.py" />
         <option value="$PROJECT_DIR$/accounts/admin.py" />
-        <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/feya/urls.py" />
         <option value="$PROJECT_DIR$/ministry/models.py" />
         <option value="$PROJECT_DIR$/docs/site.md" />
@@ -226,6 +225,7 @@
         <option value="$PROJECT_DIR$/blog/migrations/0008_load_publications.py" />
         <option value="$PROJECT_DIR$/blog/migrations/0009_load_publications.py" />
         <option value="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" />
+        <option value="$PROJECT_DIR$/blog/models.py" />
       </list>
     </option>
   </component>
@@ -744,16 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/feya/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding>
-            <element signature="e#644#685#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adminapi/registry.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -806,26 +796,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="26" column="57" lean-forward="false" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/migrations/publications.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23490">
           <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/feya/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="60" column="21" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -871,6 +845,30 @@
           <folding>
             <element signature="e#73#112#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feya/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="162" column="13" lean-forward="false" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/feya/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="34" column="26" lean-forward="false" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
