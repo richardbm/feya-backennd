@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd65796e-8055-4d4c-8e15-e656e2805fc8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/blog/migrations/0011_change_dates_publications.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" afterPath="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feya/settings.py" afterPath="$PROJECT_DIR$/feya/settings.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,21 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/feya/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="276">
-              <caret line="162" column="14" lean-forward="false" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="publications.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/migrations/publications.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23490">
-              <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
+              <caret line="162" column="13" lean-forward="false" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -67,11 +59,21 @@
       <file leaf-file-name="0010_change_dates_publications.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+            <state relative-caret-position="54">
+              <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
               <folding>
                 <element signature="e#73#112#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="0011_change_dates_publications.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/blog/migrations/0011_change_dates_publications.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -223,9 +225,10 @@
         <option value="$PROJECT_DIR$/blog/migrations/publications.json" />
         <option value="$PROJECT_DIR$/blog/migrations/0008_load_publications.py" />
         <option value="$PROJECT_DIR$/blog/migrations/0009_load_publications.py" />
-        <option value="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" />
         <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/feya/settings.py" />
+        <option value="$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py" />
+        <option value="$PROJECT_DIR$/blog/migrations/0011_change_dates_publications.py" />
       </list>
     </option>
   </component>
@@ -499,13 +502,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ministry/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="34" column="6" lean-forward="false" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/media/media/images/2017/10/16/25-9-2017-21-29-office-lens-1.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -821,26 +817,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/migrations/0009_load_publications.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="77" selection-end-column="16" />
-          <folding>
-            <element signature="e#73#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-          <folding>
-            <element signature="e#73#112#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/feya/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -868,7 +844,35 @@
     <entry file="file://$PROJECT_DIR$/feya/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
-          <caret line="162" column="14" lean-forward="false" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+          <caret line="162" column="13" lean-forward="false" selection-start-line="162" selection-start-column="9" selection-end-line="162" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/migrations/0009_load_publications.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="2" selection-end-line="77" selection-end-column="16" />
+          <folding>
+            <element signature="e#73#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/migrations/0010_change_dates_publications.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="12" column="24" lean-forward="false" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="e#73#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/migrations/0011_change_dates_publications.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="11" column="8" lean-forward="false" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
           <folding />
         </state>
       </provider>

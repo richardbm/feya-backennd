@@ -10,7 +10,7 @@ def change_dates_pub(apps, schema_editor):
     # We can't import the model directly as it may be a newer
     # version than this migration expects. We use the historical version.
     Publication = apps.get_model("blog", "publication")
-    hours = range(14, 17)
+    hours = range(18, 21)
     minutes = range(5, 59)
     seconds = range(5, 59)
 
